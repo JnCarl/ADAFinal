@@ -71,7 +71,7 @@ public class Dijkstra {
 
     public static void main(String[] args) {
         
-        //---PRUEBA DE CASO 2
+        //---PRUEBA DE CASO 2 Juan Carlos
         Node v1 = new Node("CasaJC_1");
         Node v2 = new Node("Paradero1_2");
         Node v3 = new Node("Paradero2_3");
@@ -128,6 +128,79 @@ public class Dijkstra {
             System.out.println("Ruta: " + ruta);
         }
         //FIN PRUEBA CASO 2 --
+	
+        //---PRUEBA DE CASO 1 Carlos Fabian
+        Node v01 = new Node("Casa");
+        Node v02 = new Node("Paradero1");
+        Node v03 = new Node("Paradero2");
+        Node v04 = new Node("Desvio");
+        Node v05 = new Node("Paradero3");
+        Node v06 = new Node("Destino1");
+        Node v07 = new Node("Destino2");
+        Node v08 = new Node("UNSA");
+        
+        v01.nodeadyaciente = new Arista[]{new Arista(v02, 278),
+                                    new Arista(v03, 241)};
+        
+        v02.nodeadyaciente = new Arista[]{new Arista(v04, 1440)};
+        
+        v03.nodeadyaciente = new Arista[]{new Arista(v05, 1920)};
+        
+        v04.nodeadyaciente = new Arista[]{new Arista(v06, 1700),
+                                    new Arista(v07, 1150)};
+        
+        v05.nodeadyaciente = new Arista[]{new Arista(v07, 748)};
+        
+        v06.nodeadyaciente = new Arista[]{new Arista(v08, 361)};
+        
+        v07.nodeadyaciente = new Arista[]{new Arista(v08, 101)};
+        
+        v08.nodeadyaciente = new Arista[]{new Arista(v06, 10000),
+                                          new Arista(v07, 10000),};
+        
+        
+        Node[] vertices1 = {v01, v02, v03, v04, v05, v06, v07, v08};
+
+        rutas(v01);
+        for (Node vi : vertices1) {
+            System.out.println("distancia a " + vi + ": " + vi.distanciaMin);
+            List<Node> ruta = getRutaCorta(vi);
+            System.out.println("Ruta: " + ruta);
+        }
+        //FIN PRUEBA CASO 1 --
+        
+        
+        //---PRUEBA DE CASO 3 Luis Torres
+        Node v001 = new Node("Casa");
+        Node v002 = new Node("Paradero1");
+        Node v003 = new Node("Desvio");
+        Node v004 = new Node("Paradero2");
+        Node v005 = new Node("Paradero3");
+        Node v006 = new Node("UNSA");
+        
+        v001.nodeadyaciente = new Arista[]{new Arista(v002, 1000)};
+        
+        v002.nodeadyaciente = new Arista[]{new Arista(v004, 2700),
+                                           new Arista(v003, 300)};
+        
+        v003.nodeadyaciente = new Arista[]{new Arista(v005, 2000)};
+        
+        v004.nodeadyaciente = new Arista[]{new Arista(v005, 600)};
+        
+        v005.nodeadyaciente = new Arista[]{new Arista(v006, 200)};
+        
+        v006.nodeadyaciente = new Arista[]{new Arista(v005, 100000)};
+        
+        
+        Node[] vertices01 = {v001, v002, v003, v004, v005, v006};
+
+        rutas(v001);
+        for (Node vCaso3 : vertices01) {
+            System.out.println("distancia a " + vCaso3 + ": " + vCaso3.distanciaMin);
+            List<Node> ruta = getRutaCorta(vCaso3);
+            System.out.println("Ruta: " + ruta);
+        }
+        //FIN PRUEBA CASO 3 --
 
     }
 }
