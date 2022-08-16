@@ -129,9 +129,10 @@ public class BFS {
 	}
 	
 	public static void main(String[] args) {
+
 		GraphAlgorithms<String> rutasBFS1 = new GraphAlgorithms<>();
 		
-		
+		long inicioCaso1 = System.nanoTime();
 		Graph<String> rutas1 = new Graph<>();
 		 rutas1.link("Casa", "Paradero1", 278);
 		 rutas1.link("Casa", "Paradero2", 241);
@@ -143,23 +144,35 @@ public class BFS {
 		 rutas1.link("Destino2", "UNSA", 101);
 		 rutas1.link("Destino1", "UNSA", 361);
 	
-		 
+		 System.out.println("Caso 1: "+rutasBFS1.BFS(rutas1));
+	     long finCaso1 = System.nanoTime();
+	     System.out.println(finCaso1-inicioCaso1);
 	     
+	     long inicioCaso2 = System.nanoTime();
+	     GraphAlgorithms<String> rutasBFS2 = new GraphAlgorithms<>();
+
 	     Graph<String> rutas2 = new Graph<>();
-	     rutas1.link("Casa", "Paradero1", 210);
-	     rutas1.link("Casa", "Paradero2", 700);
-	     rutas1.link("Paradero1", "Paradero3", 700);
-	     rutas1.link("Paradero2", "Desvio1", 750);
-	     rutas1.link("Desvio1", "Paradero3", 2400);
-	     rutas1.link("Desvio1", "Paradero4", 8500);
-	     rutas1.link("Paradero3", "Desvio2", 2100);
-	     rutas1.link("Paradero4", "UNSA", 8300);
-	     rutas1.link("Desvio2", "Desvio3", 4300);
-	     rutas1.link("Desvio2", "UNSA", 5900);
-	     rutas1.link("Desvio3", "Paradero5", 1100);
-	     rutas1.link("Desvio3", "UNSA", 2600);
-	     rutas1.link("Paradero5", "UNSA", 1900);
+	     rutas2.link("Casa", "Paradero1", 210);
+	     rutas2.link("Casa", "Paradero2", 700);
+	     rutas2.link("Paradero1","Paradero2",700);
+	     rutas2.link("Paradero2", "Desvio1", 750);
+	     rutas2.link("Desvio1", "Paradero3", 2400);
+	     rutas2.link("Desvio1", "Paradero4", 8500);
+	     rutas2.link("Paradero3", "Desvio2", 2100);
+	     rutas2.link("Paradero4", "UNSA", 8300);
+	     rutas2.link("Desvio2", "Desvio3", 4300);
+	     rutas2.link("Desvio2", "UNSA", 5900);
+	     rutas2.link("Desvio3", "Paradero5", 1100);
+	     rutas2.link("Desvio3", "UNSA", 2600);
+	     rutas2.link("Paradero5", "UNSA", 1900);
 	     
+	     System.out.println("Caso 2: "+rutasBFS2.BFS(rutas2));
+	     long finCaso2 = System.nanoTime();
+	     System.out.println(finCaso2-inicioCaso2);
+	     
+	     
+	     long inicioCaso3 = System.nanoTime();
+	     GraphAlgorithms<String> rutasBFS3 = new GraphAlgorithms<>();
 	     Graph<String> rutas3 = new Graph<>();
 		 rutas3.link("Casa", "Paradero1", 1000);
 	     rutas3.link("Paradero1", "Paradero2", 2700);
@@ -168,8 +181,10 @@ public class BFS {
 	     rutas3.link("Desvio", "Paradero3", 2000);
 	     rutas3.link("Paradero3", "UNSA", 200);
 	     
-	     System.out.println("Caso 1: "+rutasBFS1.BFS(rutas2));
-
+	     System.out.println("Caso 3: "+rutasBFS3.BFS(rutas3));
+	     long finCaso3 = System.nanoTime();
+	     System.out.println(finCaso3-inicioCaso3);
+	    
 	}
 
 }
