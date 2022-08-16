@@ -24,6 +24,7 @@ public class Main
     public static void main(String[] args) 
     {
         Scanner stdin = new Scanner(System.in);
+	    long timeS, timeE, timeR;
         // Tests out algorithm with graph shown in class.
     	int[][] m = new int[8][8];
     	m[0][0] = 10000; m[0][1] = 278;  m[0][2] = 0; m[0][3] = 10000; 
@@ -62,7 +63,12 @@ public class Main
     	for (int i=0; i<8; i++)
             path[i][i] = i;
 
-    	shortpath = shortestpath(m, path);
+    	timeS = System.nanoTime();
+		shortpath = shortestpath(m, path);
+		
+        timeE = System.nanoTime();
+        timeR = timeE - timeS;
+	    
         // Prints out shortest distances.
         System.out.println("  0  1  2  3  4  5  6  7 ");
         System.out.println("  ---------");
